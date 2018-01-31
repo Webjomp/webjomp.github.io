@@ -1,2 +1,2 @@
-webpackJsonp([0xcef1459165bc],{301:function(a,c){a.exports={data:{file:{childImageSharp:{responsiveResolution:{src:"/static/fx-061c7fd2aca267f718382067bbaa14cf-f6f0c.png"}}}},pathContext:{}}}});
+webpackJsonp([0xcef1459165bc],{300:function(a,c){a.exports={data:{file:{childImageSharp:{responsiveResolution:{src:"/static/fx-061c7fd2aca267f718382067bbaa14cf-f6f0c.png"}}}},pathContext:{}}}});
 //# sourceMappingURL=path---apropos-8efca70fbf811cecb912.js.map
