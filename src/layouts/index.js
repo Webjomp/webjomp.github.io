@@ -24,8 +24,10 @@ class Template extends React.Component {
     }
 
     componentDidUpdate() {
-        $('.scrolly').on('click', function(e) {
-            const heightToScroll = $('#main').offset().top - $('#header').height();
+        const button = $('.scrolly');
+
+        button.on('click', function(e) {
+            const heightToScroll = $(`#${button[0].href.split('#')[1]}`).offset().top - $('#header').height();
 
             $('html, body').animate({ scrollTop: heightToScroll, }, 1200);
         });

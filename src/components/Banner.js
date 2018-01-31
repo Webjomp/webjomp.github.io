@@ -12,7 +12,7 @@ const Banner = (props) => (
                     conseils pour solutions d'affaires.
                 </p>
                 <ul className="actions">
-                    <li><a href="#one" className="button next scrolly">En savoir plus</a></li>
+                    <li><a href="#main" className="button next scrolly">En savoir plus</a></li>
                 </ul>
             </div>
         </div>
