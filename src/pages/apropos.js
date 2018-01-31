@@ -17,7 +17,7 @@ const Apropos = (props) => (
                     </header>
                     <span className="image left"><img src={props.data.file.childImageSharp.responsiveResolution.src} alt="François-Xavier Lemire" /></span>
                     <p>
-                        Fondateur de Webjomp, François-Xavier obtient un diplôme en informatique avec une majeure en génie logiciel à l'Université McGill en 2016. Il est aussi diplômé en droit de l'Université de Montréal depuis 2010 et membre du Barreau du Québec depuis 2011, auparavant praticien au sein du cabinet <a href="http://www.lemireavocat.com">Lemire Lemire avocats, s.e.n.c</a>
+                        Fondateur de Webjomp, François-Xavier Lemire obtient un diplôme en informatique avec une majeure en génie logiciel à l'Université McGill en 2016. Il est aussi diplômé en droit de l'Université de Montréal depuis 2010 et membre du Barreau du Québec depuis 2011, auparavant praticien au sein du cabinet <a href="http://www.lemireavocat.com">Lemire Lemire avocats, s.e.n.c</a>
                     </p>
                     <p>
                         François-Xavier a développé ses talents d'ingénieur logiciel en touchant à plusieurs disciplines, dont la <i>FinTech</i> chez <a href="http://www.morganstanley.com/">Morgan Stanley</a>, les jeux vidéo (<i>Skylanders : SuperChargers</i>) chez <a href="http://beenox.com/">Activision (Beenox)</a>, et la publicité mobile chez <a href="https://vungle.com/">Vungle</a>, à San Francisco.
