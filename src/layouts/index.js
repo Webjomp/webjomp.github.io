@@ -1,10 +1,10 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
 import $ from 'jquery';
-import '../assets/scss/main.scss'
-import Header from '../components/Header'
-import Menu from '../components/Menu'
-import Footer from '../components/Footer'
+import '../assets/scss/main.scss';
+import Header from '../components/Header';
+import Menu from '../components/Menu';
+import Footer from '../components/Footer';
 
 class Template extends React.Component {
 
@@ -17,19 +17,21 @@ class Template extends React.Component {
         this.handleToggleMenu = this.handleToggleMenu.bind(this)
     }
 
-    componentDidMount () {
+    componentDidMount() {
         this.timeoutId = setTimeout(() => {
             this.setState({loading: ''});
         }, 100);
+    }
 
+    componentDidUpdate() {
         $('.scrolly').on('click', function(e) {
-            $('html, body').animate({
-                scrollTop: $(window).height()
-            }, 1200);
+            const heightToScroll = $('#main').offset().top - $('#header').height();
+
+            $('html, body').animate({ scrollTop: heightToScroll, }, 1200);
         });
     }
 
-    componentWillUnmount () {
+    componentWillUnmount() {
         if (this.timeoutId) {
             clearTimeout(this.timeoutId);
         }
