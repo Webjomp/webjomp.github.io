@@ -1,5 +1,4 @@
 import React from 'react'
-import Img from 'gatsby-image';
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
