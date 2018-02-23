@@ -1,4 +1,16 @@
 module.exports = {
+  about: {
+    title: 'About Webjomp',
+    desc: {
+      1: 'Founder of Webjomp, François-Xavier Lemire a B.Sc. in Computer Science with a major in software engineering from ' +
+      'McGill University in 2016. He also holds an LL.B. from the Université de Montréal since 2010 and is registered to the ' +
+      'Québec Bar Roll of Order since 2011, being a former lawyer at {lla}',
+      2: 'François-Xavier has applied his unique engineering skills in many domains including {fintech} at {morgan}, mobile ' +
+      'in-app advertising at {vungle}, San Francisco and gaming at {beenox} where he worked on the blockbuster success {skylanders}.',
+      3: 'If you don’t find him brainstorming for the next big thing, he’s most probably playing trumpet, tasting scotch or boxing!',
+      4: 'Make sure to stay in touch!',
+    },
+  },
   banner: {
     header: {
       default: 'The web, ',

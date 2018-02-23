@@ -139,6 +139,18 @@ export const serviceImageFragment = graphql`
   }
 `;
 
+export const aboutFragment = graphql`
+  fragment AboutFragment on RootQueryType {
+    file(relativePath: { eq: "fx.png" }) {
+      childImageSharp {
+        responsiveResolution {
+          src
+        }
+      }
+    }
+  }
+`;
+
 export const landingFragment = graphql`
   fragment Landing on RootQueryType {
     site {
