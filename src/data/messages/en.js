@@ -16,9 +16,7 @@ module.exports = {
       default: 'The web, ',
       span: 'reimagined',
     },
-    desc: {
-      line1: 'Website design, mobile app development and consulting.',
-    },
+    desc: 'Website design, mobile app development and consulting.',
     cta: 'Learn More',
   },
   contact: {
@@ -30,6 +28,11 @@ module.exports = {
       message: 'Message',
       receiveCopy: 'Receive a copy',
       send: 'Send',
+      confirm: {
+        success: 'Your message has been sent. We\'ll get back to you very soon!',
+        error: 'There was an error sending the form. Please try again later.',
+        close: 'Close',
+      },
     },
     email: 'E-mail',
     phone: 'Phone',

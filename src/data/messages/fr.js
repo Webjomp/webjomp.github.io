@@ -17,10 +17,7 @@ module.exports = {
       default: 'Le web, ',
       span: 'repensé',
     },
-    desc: {
-      line1: 'Création de sites web, d\'applications mobiles et',
-      line2: 'conseils pour solutions d\'affaires.',
-    },
+    desc: 'Création de sites web, d\'applications mobiles et {br}conseils pour solutions d\'affaires.',
     cta: 'En savoir plus',
   },
   contact: {
@@ -32,6 +29,11 @@ module.exports = {
       message: 'Message',
       receiveCopy: 'Recevoir une copie',
       send: 'Envoyer',
+      confirm: {
+        success: 'Votre message a bien été envoyé. Nous vous contacterons sous peu!',
+        error: 'La transmission du formulaire a échoué. Veuillez réessayer plus tard.',
+        close: 'Fermer',
+      },
     },
     email: 'Courriel',
     phone: 'Téléphone',

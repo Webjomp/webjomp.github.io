@@ -6,7 +6,7 @@ import 'material-design-lite/src/snackbar/snackbar';
 
 import $ from 'jquery';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 
 class Contact extends React.Component {
   static cleanMessage() {
@@ -23,20 +23,20 @@ class Contact extends React.Component {
     $('#form-cc').attr('value', ccValue);
   }
 
-  static showMessage(message) {
-    const snackbarContainer = $('#form-is-sent-status')[0];
+  showMessage = (message) => {
+    const snackbarContainer = $('#form-is-sent-status')[0] || $('#form-is-sent-status');
 
     const data = {
       message,
       timeout: 60000,
       actionHandler: Contact.cleanMessage,
-      actionText: 'Fermer',
+      actionText: this.props.intl.formatMessage({ id: 'contact.form.confirm.close' }),
     };
 
     snackbarContainer.MaterialSnackbar.showSnackbar(data);
   }
 
-  static submitContactForm(e) {
+  submitContactForm = (e) => {
     e.preventDefault();
 
     const form = $('#contact-form');
@@ -51,19 +51,14 @@ class Contact extends React.Component {
 
     $('#send-progress').css('visibility', 'visible');
 
-    $.ajax({
-      data,
-      url,
-      method: 'POST',
-      dataType: 'json',
-      success: () => {
-        $('#send-progress').css('visibility', 'hidden');
-        Contact.showMessage('Votre message a bien été envoyé. Je vous contacterai sous peu!');
-      },
-      error: () => {
-        $('#send-progress').css('visibility', 'hidden');
-        Contact.showMessage('La transmission du formulaire a échoué. Veuillez réessayer plus tard.');
-      },
+    $.post(url, data, (body, statusText, res) => {
+      $('#send-progress').css('visibility', 'hidden');
+
+      if (res.status === 200) {
+        this.showMessage(this.props.intl.formatMessage({ id: 'contact.form.confirm.success' }));
+      } else {
+        this.showMessage(this.props.intl.formatMessage({ id: 'contact.form.confirm.error' }));
+      }
     });
 
     return false;
@@ -109,7 +104,7 @@ class Contact extends React.Component {
               </div>
 
               <input type="hidden" name="_cc" id="form-cc" />
-              <input type="hidden" name="_language" value="fr" />
+              <input type="hidden" name="_language" value={this.props.intl.locale} />
               <input type="text" name="_gotcha" style={{ display: 'none' }} />
 
               <ul className="actions">
@@ -162,4 +157,8 @@ class Contact extends React.Component {
   }
 }
 
-export default Contact;
+Contact.propTypes = {
+  intl: intlShape.isRequired,
+};
+
+export default injectIntl(Contact);

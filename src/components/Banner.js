@@ -18,12 +18,7 @@ const Banner = ({ background }) => (
         </FormattedMessage>
       </header>
       <div className="content">
-        <p>
-          <FormattedMessage id="banner.desc.line1" />
-          <FormattedMessage id="banner.desc.line2">
-            {text => text !== 'banner.desc.line2' && (<span><br />{text}</span>)}
-          </FormattedMessage>
-        </p>
+        <FormattedMessage id="banner.desc" values={{ br: <br /> }} tagName="p" />
         <ul className="actions">
           <li><a href="#main" className="button next scrolly"><FormattedMessage id="banner.cta" /></a></li>
         </ul>
