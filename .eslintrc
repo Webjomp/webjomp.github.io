@@ -1,0 +1,24 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "import/no-extraneous-dependencies": false,
+    "jsx-a11y/anchor-is-valid": [ "error", { "components": [] }],
+    "react/jsx-filename-extension": false,
+    "max-len": ["error", 140],
+    "object-curly-newline": ["error", {
+      "ObjectExpression": { "minProperties": 5, "multiline": true, "consistent": true },
+      "ObjectPattern": { "minProperties": 5, "multiline": true, "consistent": true }
+    }]
+  },
+  "globals": {
+    "document": true,
+    "graphql": true,
+    "window": true
+  },
+  "overrides": [
+    {
+      "files": ["./**/*.js"],
+      "excludedFiles": ["./public", "./node_modules"]
+    }
+  ]
+}

@@ -1,22 +1,39 @@
-import React from 'react'
+import PropTypes from 'prop-types';
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
-const Banner = (props) => (
-    <section id="banner" className="major" style={{ backgroundImage: `url(${props.background})` }}>
-        <div className="inner">
-            <header className="major">
-                <h1>Le Web, <span className="accent-wj fade-in">repensé</span></h1>
-            </header>
-            <div className="content">
-                <p>
-                    Création de sites web, d'applications mobiles et <br />
-                    conseils pour solutions d'affaires.
-                </p>
-                <ul className="actions">
-                    <li><a href="#main" className="button next scrolly">En savoir plus</a></li>
-                </ul>
-            </div>
-        </div>
-    </section>
+const Banner = ({ background }) => (
+  <section id="banner" className="major" style={{ backgroundImage: `url(${background})` }}>
+    <div className="inner">
+      <header className="major">
+        <FormattedMessage id="banner.header.default">
+          {text => (
+            <h1>
+              {text}
+              <FormattedMessage id="banner.header.span">
+                {spanText => <span className="accent-wj fade-in">{spanText}</span>}
+              </FormattedMessage>
+            </h1>
+          )}
+        </FormattedMessage>
+      </header>
+      <div className="content">
+        <p>
+          <FormattedMessage id="banner.desc.line1" />
+          <FormattedMessage id="banner.desc.line2">
+            {text => text !== 'banner.desc.line2' && (<span><br />{text}</span>)}
+          </FormattedMessage>
+        </p>
+        <ul className="actions">
+          <li><a href="#main" className="button next scrolly"><FormattedMessage id="banner.cta" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 );
+
+Banner.propTypes = {
+  background: PropTypes.string.isRequired,
+};
 
 export default Banner;
