@@ -54,9 +54,24 @@ class Contact extends React.Component {
     $.post(url, data, (body, statusText, res) => {
       $('#send-progress').css('visibility', 'hidden');
 
-      if (res.status === 200) {
-        this.showMessage(this.props.intl.formatMessage({ id: 'contact.form.confirm.success' }));
-      } else {
+      try {
+        if (res.status === 200) {
+          const w = window.open();
+
+          if (!w) {
+            this.showMessage(this.props.intl.formatMessage({ id: 'contact.form.confirm.popup' }));
+          } else {
+            w.document.open();
+            w.document.write(body);
+            w.document.close();
+            w.focus();
+
+            this.showMessage(this.props.intl.formatMessage({ id: 'contact.form.confirm.success' }));
+          }
+        } else {
+          throw new Error(res);
+        }
+      } catch (error) {
         this.showMessage(this.props.intl.formatMessage({ id: 'contact.form.confirm.error' }));
       }
     });

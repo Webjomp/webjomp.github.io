@@ -30,8 +30,9 @@ module.exports = {
       receiveCopy: 'Recevoir une copie',
       send: 'Envoyer',
       confirm: {
-        success: 'Votre message a bien été envoyé. Nous vous contacterons sous peu!',
-        error: 'La transmission du formulaire a échoué. Veuillez réessayer plus tard.',
+        success: 'ReCaptcha résolu? Nous vous contacterons sous peu!',
+        error: 'ERREUR: L\'envoi a échoué. Veuillez réessayer plus tard.',
+        popup: 'ERREUR: Autorisez les pop-ups pour compléter un reCaptcha.',
         close: 'Fermer',
       },
     },
