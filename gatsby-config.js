@@ -2,6 +2,7 @@ const languages = require('./src/data/languages');
 
 module.exports = {
   siteMetadata: {
+    siteUrl: 'https://www.webjomp.com',
     title: JSON.stringify({
       en: 'Webjomp - The web, reimagined',
       fr: 'Webjomp - Le web, repensé',
@@ -54,6 +55,7 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
