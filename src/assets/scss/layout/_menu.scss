@@ -93,6 +93,7 @@
 			height: 4em;
 			line-height: 4em;
 			overflow: hidden;
+			margin: 1px;
 			padding-right: 1.25em;
 			position: absolute;
 			right: 0;
@@ -101,7 +102,8 @@
 			top: 0;
 			vertical-align: middle;
 			white-space: nowrap;
-			width: 8em;
+			width: 4em;
+			box-shadow: none;
 
 			&:before, &:after {
 				@include vendor('transition', 'opacity #{_duration(transition)} ease-in-out');

@@ -4,6 +4,12 @@
     color: _palette(accent1);
   }
 
+  p {
+    &:last-of-type {
+      display: inline-block;
+    }
+  }
+
   .image {
     &.left {
       @media screen and (max-width: 500px) {
