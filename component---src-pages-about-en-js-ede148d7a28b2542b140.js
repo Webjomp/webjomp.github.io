@@ -1,0 +1,2 @@
+webpackJsonp([0xf9c973211d28],{584:function(t,e){"use strict";e.__esModule=!0,e.default="../layouts/about",t.exports=e.default}});
+//# sourceMappingURL=component---src-pages-about-en-js-ede148d7a28b2542b140.js.map

@@ -1,0 +1,2 @@
+webpackJsonp([63962516548452],{728:function(a,e){a.exports={data:{file:{childImageSharp:{responsiveResolution:{src:"/static/fx-061c7fd2aca267f718382067bbaa14cf-f6f0c.png"}}}},pathContext:{slug:"/en/about/",langKey:"en"}}}});
+//# sourceMappingURL=path---en-about-21f2f56f3f9ee90c8ebd.js.map

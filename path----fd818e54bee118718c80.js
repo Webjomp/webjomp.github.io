@@ -1,0 +1,2 @@
+webpackJsonp([60335399758886],{473:function(a,t){a.exports={data:{site:{siteMetadata:{languages:{defaultLangKey:"fr",langs:["en","fr"]}}}},layoutContext:{}}},474:function(a,t){a.exports={data:{site:{siteMetadata:{languages:{defaultLangKey:"fr",langs:["en","fr"]}}}},layoutContext:{}}}});
+//# sourceMappingURL=path----fd818e54bee118718c80.js.map
