@@ -29,8 +29,9 @@ module.exports = {
       receiveCopy: 'Receive a copy',
       send: 'Send',
       confirm: {
-        success: 'Your message has been sent. We\'ll get back to you very soon!',
-        error: 'There was an error sending the form. Please try again later.',
+        success: 'Please complete the reCaptcha in the new pop-up!',
+        error: 'ERROR: There was an error sending the form. Please try again later.',
+        popup: 'ERROR: Please allow popups, then retry and complete a reCaptcha.',
         close: 'Close',
       },
     },
