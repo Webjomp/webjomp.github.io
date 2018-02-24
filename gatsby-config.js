@@ -2,6 +2,7 @@ const languages = require('./src/data/languages');
 
 module.exports = {
   siteMetadata: {
+    siteUrl: 'https://www.webjomp.com',
     title: JSON.stringify({
       en: 'Webjomp - The web, reimagined',
       fr: 'Webjomp - Le web, repensé',
@@ -26,6 +27,14 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-73479304-1',
+        head: true,
+        anonymize: false,
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
@@ -46,6 +55,7 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
