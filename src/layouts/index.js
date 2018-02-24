@@ -22,6 +22,7 @@ class Template extends Component {
 
       if (element) {
         element.scrollIntoView();
+        window.scrollBy(0, -$('#header').height() + 1);
       }
     }
   }
@@ -147,6 +148,20 @@ export const aboutFragment = graphql`
           src
         }
       }
+    }
+  }
+`;
+
+export const serviceFragment = graphql`
+  fragment ServiceFragment on RootQueryType {
+    websites: file(relativePath: { eq: "services-site-web.png" }) {
+      ...ServiceImage
+    }
+    mobileapps: file(relativePath: { eq: "mobile-app.jpg" }) {
+      ...ServiceImage
+    }
+    consulting: file(relativePath: { eq: "consulting.jpg" }) {
+      ...ServiceImage
     }
   }
 `;

@@ -86,4 +86,70 @@ module.exports = {
     },
     clients: { title: 'Some of our clients' },
   },
+  services: {
+    title: 'Webjomp - Services',
+    header: 'Our Services',
+    desc: 'Website design, mobile app development and consulting.',
+    main: {
+      header: 'Way more than websites',
+      desc: 'On top of website design, Webjomp offers a wide variety of services such as custom mobile app (Android, iOS and Windows) ' +
+        'and software development tailored to the needs of your industry.',
+      cta: 'Learn more',
+    },
+    websites: {
+      header: 'Websites',
+      list: {
+        1: 'eCommerce',
+        2: 'Responsive',
+        3: 'Blogs',
+        4: 'Search Engine Optimization (SEO)',
+        5: 'Email Marketing',
+        6: 'Writing and Translation',
+        7: 'Original Designs and Makeovers',
+        8: 'Static and Dynamic Pages',
+        9: 'Maps and Calendars',
+        10: 'Social Networks',
+        11: 'Chat Platform',
+        12: 'Contact Forms',
+        13: 'Data Analytics',
+        14: 'Advertisement',
+        15: 'Custom Domain Acquisition',
+        16: 'Web Hosting',
+      },
+      more: {
+        content: 'Can\'t find what you need? Don\'t hesitate to {anchor}!',
+        anchor: 'contact us',
+      },
+    },
+    apps: {
+      header: 'Mobile Apps',
+      desc: {
+        p1: 'We develop for Android, iOS and Windows Phones.',
+        p2: 'You have an idea in mind? We bring it to life with you through the following steps: ' +
+          'identify the requirements, create a design, develop and test the features, publish the app to the store.',
+        p3: 'But that\'s not all! We stay with you and keep your app up to date to ensure its performance, and we ' +
+          'improve its design and features by analyzing your users\' data and behavior.',
+      },
+    },
+    consulting: {
+      header: 'Consulting',
+      desc: 'Focus on what you\'re pro at.',
+      software: {
+        header: 'Custom Software Development',
+        desc: 'Data visualization, task automation.',
+      },
+      solutions: {
+        header: 'Business Solutions',
+        desc: 'Billing, office, accounting, salaries, project management, customer management system (CMS).',
+      },
+      pm: {
+        header: 'Project Management',
+        desc: 'Client presentations, schedule management, quality assurance (QA).',
+      },
+      strategy: {
+        header: 'Business Strategy',
+        desc: 'Advertisement, search engine optimization (SEO), data analytics, new software solutions, growth and scaling advising.',
+      },
+    },
+  },
 };
