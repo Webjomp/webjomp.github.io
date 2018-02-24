@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Landing from '../components/Landing';
-import { getLandingImages } from './utils';
+import { getLandingImages } from './_utils';
 
 const HomeIndexFr = ({ data }) => {
   const imageUrls = getLandingImages(data);

@@ -4,7 +4,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 
-const Service = ({ images, intl }) => {
+const Services = ({ images, intl }) => {
   const websiteItems = require(`../data/messages/${intl.locale}`).services.websites.list; // eslint-disable-line
 
   return (
@@ -107,7 +107,7 @@ const Service = ({ images, intl }) => {
   );
 };
 
-Service.propTypes = {
+Services.propTypes = {
   images: PropTypes.shape({
     consulting: PropTypes.string.isRequired,
     mobileapps: PropTypes.string.isRequired,
@@ -116,4 +116,4 @@ Service.propTypes = {
   intl: intlShape.isRequired,
 };
 
-export default injectIntl(Service);
+export default injectIntl(Services);

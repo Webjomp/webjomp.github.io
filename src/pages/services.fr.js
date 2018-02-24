@@ -1,3 +1,3 @@
-import ServicePage from '../layouts/services';
+import Services from '../layouts/services';
 
-export default ServicePage;
+export default Services;
