@@ -1,6 +1,4 @@
-import 'intl';
-
-import flatJson from 'flat';
+import { flatten } from 'flat';
 import $ from 'jquery';
 import PropTypes from 'prop-types';
 import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
@@ -15,14 +13,16 @@ import Footer from '../components/Footer';
 
 class Template extends Component {
   static navigateToHash() {
-    const href = window.___history.location.hash; // eslint-disable-line no-underscore-dangle
+    if (typeof window !== 'undefined') {
+      const href = window.___history.location.hash; // eslint-disable-line no-underscore-dangle
 
-    if (href) {
-      const element = document.querySelector(href);
+      if (href) {
+        const element = document.querySelector(href);
 
-      if (element) {
-        element.scrollIntoView();
-        window.scrollBy(0, -$('#header').height() + 1);
+        if (element) {
+          element.scrollIntoView();
+          window.scrollBy(0, -$('#header').height() + 1);
+        }
       }
     }
   }
@@ -78,7 +78,7 @@ class Template extends Component {
     const langsMenu = getLangs(langs, langKey, getUrlForLang(homeLink, url));
 
     return (
-      <IntlProvider locale={langKey} key={langKey} messages={flatJson(i18nMessages)}>
+      <IntlProvider locale={langKey} key={langKey} messages={flatten(i18nMessages)}>
         <div className={`body ${this.state.loading} ${this.state.isMenuVisible ? 'is-menu-visible' : ''}`}>
           <div id="wrapper">
             <Header onToggleMenu={this.handleToggleMenu} />
@@ -126,42 +126,6 @@ export const imageWideFragment = graphql`
       responsiveResolution(width: 900, quality: 90) {
         src
       }
-    }
-  }
-`;
-
-export const serviceImageFragment = graphql`
-  fragment ServiceImage on File {
-    childImageSharp {
-      responsiveResolution(width: 980, quality: 80) {
-        src
-      }
-    }
-  }
-`;
-
-export const aboutFragment = graphql`
-  fragment AboutFragment on RootQueryType {
-    file(relativePath: { eq: "fx.png" }) {
-      childImageSharp {
-        responsiveResolution {
-          src
-        }
-      }
-    }
-  }
-`;
-
-export const serviceFragment = graphql`
-  fragment ServiceFragment on RootQueryType {
-    websites: file(relativePath: { eq: "services-site-web.png" }) {
-      ...ServiceImage
-    }
-    mobileapps: file(relativePath: { eq: "mobile-app.jpg" }) {
-      ...ServiceImage
-    }
-    consulting: file(relativePath: { eq: "consulting.jpg" }) {
-      ...ServiceImage
     }
   }
 `;

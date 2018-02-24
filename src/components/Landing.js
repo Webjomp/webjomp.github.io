@@ -8,7 +8,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 
-import { getTileAttributes } from '../pages/utils';
+import { getTileAttributes } from '../pages/_utils';
 import Banner from './Banner';
 import Contact from './Contact';
 import LandingService from './LandingService';

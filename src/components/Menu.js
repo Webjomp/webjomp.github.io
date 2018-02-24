@@ -22,7 +22,7 @@ const Menu = ({ langs, onToggleMenu }) => {
 
     const currentUniquePageKey = Object
       .keys(uniquePagesRedirection)
-      .find(page => !!window.location.pathname.match(getPageRegex(page), 'gi'));
+      .find(page => typeof window !== 'undefined' && !!window.location.pathname.match(getPageRegex(page), 'gi'));
 
     return (
       <li key={lang.langKey}>

@@ -1,4 +1,4 @@
-import 'intl/locale-data/jsonp/en';
+import 'intl';
 
 import React from 'react';
 import { addLocaleData } from 'react-intl';

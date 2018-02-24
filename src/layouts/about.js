@@ -22,6 +22,12 @@ export default AboutPage;
 
 export const pageQuery = graphql`
   query AboutQuery {
-    ...AboutFragment
+    file(relativePath: { eq: "fx.png" }) {
+      childImageSharp {
+        responsiveResolution {
+          src
+        }
+      }
+    }
   }
 `;
