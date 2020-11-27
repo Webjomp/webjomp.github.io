@@ -3,13 +3,24 @@
   "parser": "babel-eslint",
   "rules": {
     "import/no-extraneous-dependencies": false,
-    "jsx-a11y/anchor-is-valid": [ "error", { "components": [] }],
+    "jsx-a11y/anchor-is-valid": ["error", { "components": [] }],
     "react/jsx-filename-extension": false,
     "max-len": ["error", 140],
-    "object-curly-newline": ["error", {
-      "ObjectExpression": { "minProperties": 5, "multiline": true, "consistent": true },
-      "ObjectPattern": { "minProperties": 5, "multiline": true, "consistent": true }
-    }]
+    "object-curly-newline": [
+      "error",
+      {
+        "ObjectExpression": {
+          "minProperties": 5,
+          "multiline": true,
+          "consistent": true
+        },
+        "ObjectPattern": {
+          "minProperties": 5,
+          "multiline": true,
+          "consistent": true
+        }
+      }
+    ]
   },
   "globals": {
     "document": true,

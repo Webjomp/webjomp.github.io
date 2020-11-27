@@ -19,9 +19,13 @@ class Header extends React.Component {
   render() {
     return (
       <header id="header" className="alt">
-        <Link to="/" className="logo accent-wj">Webjomp</Link>
+        <Link to="/" className="logo accent-wj">
+          Webjomp
+        </Link>
         <nav>
-          <button className="menu-link" onClick={this.props.onToggleMenu}>Menu</button>
+          <button className="menu-link" onClick={this.props.onToggleMenu}>
+            Menu
+          </button>
         </nav>
       </header>
     );

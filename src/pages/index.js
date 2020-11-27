@@ -18,7 +18,7 @@ class RedirectIndex extends React.PureComponent {
   }
 
   render() {
-    return (<div />);
+    return <div />;
   }
 }
 

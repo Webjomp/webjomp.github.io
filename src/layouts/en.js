@@ -9,12 +9,7 @@ import Layout from './index';
 
 addLocaleData(en);
 
-export default props => (
-  <Layout
-    {...props}
-    i18nMessages={messages}
-  />
-);
+export default (props) => <Layout {...props} i18nMessages={messages} />;
 
 export const pageQuery = graphql`
   query LayoutEnQuery {

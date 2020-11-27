@@ -55,24 +55,51 @@ class HomeIndex extends React.Component {
 
         <div id="main">
           <section id="one" className="tiles">
-            {tileAttributes.map(attribute => <LandingTile key={attribute} attribute={attribute} imageUrl={imageUrls[attribute]} />)}
+            {tileAttributes.map((attribute) => (
+              <LandingTile
+                key={attribute}
+                attribute={attribute}
+                imageUrl={imageUrls[attribute]}
+              />
+            ))}
           </section>
 
           <section id="two">
             <div className="inner">
-              <header className="major" style={{ display: 'flex', justifyContent: 'center', width: 'auto' }}>
+              <header
+                className="major"
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  width: 'auto',
+                }}
+              >
                 <FormattedMessage id="landing.services.title">
-                  {text => (<h2 style={{ width: 'auto' }}>{text}</h2>)}
+                  {(text) => <h2 style={{ width: 'auto' }}>{text}</h2>}
                 </FormattedMessage>
               </header>
 
               <div className="services">
-                {services.map(service => (<LandingService key={service.name} name={service.name} icon={service.icon} />))}
+                {services.map((service) => (
+                  <LandingService
+                    key={service.name}
+                    name={service.name}
+                    icon={service.icon}
+                  />
+                ))}
               </div>
 
-              <ul className="actions" style={{ paddingTop: '3em', textAlign: 'center' }}>
+              <ul
+                className="actions"
+                style={{ paddingTop: '3em', textAlign: 'center' }}
+              >
                 <li>
-                  <a href={withPrefix(`${intl.locale}/services`)} className="button next"><FormattedMessage id="landing.services.cta" /></a>
+                  <a
+                    href={withPrefix(`${intl.locale}/services`)}
+                    className="button next"
+                  >
+                    <FormattedMessage id="landing.services.cta" />
+                  </a>
                 </li>
               </ul>
             </div>
@@ -80,18 +107,61 @@ class HomeIndex extends React.Component {
 
           <section id="three" style={{ paddingBottom: '1em' }}>
             <div className="inner">
-              <header className="major" style={{ display: 'flex', justifyContent: 'center', width: 'auto' }}>
+              <header
+                className="major"
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  width: 'auto',
+                }}
+              >
                 <FormattedMessage id="landing.clients.title">
-                  {text => <h2 style={{ width: 'auto' }}>{text}</h2>}
+                  {(text) => <h2 style={{ width: 'auto' }}>{text}</h2>}
                 </FormattedMessage>
               </header>
               <div className="clients-carousel">
-                <div><img style={{ margin: '0 auto', height: '4em' }} src={aaiard} alt="AAIARD" /></div>
-                <div><img style={{ margin: '0 auto', height: '4em' }} src={eprintit} alt="ePRINTit" /></div>
-                <div><img style={{ margin: '0 auto', height: '4em' }} src={evolvingweb} alt="Evolving Web" /></div>
-                <div><img style={{ margin: '0 auto', height: '4em' }} src={kopi} alt="KOPI" /></div>
-                <div><img style={{ margin: '0 auto', height: '4em' }} src={seahub} alt="SeaHub" /></div>
-                <div><img style={{ margin: '0 auto', height: '4em' }} src={t10labs} alt="Tower10 Labs" /></div>
+                <div>
+                  <img
+                    style={{ margin: '0 auto', height: '4em' }}
+                    src={aaiard}
+                    alt="AAIARD"
+                  />
+                </div>
+                <div>
+                  <img
+                    style={{ margin: '0 auto', height: '4em' }}
+                    src={eprintit}
+                    alt="ePRINTit"
+                  />
+                </div>
+                <div>
+                  <img
+                    style={{ margin: '0 auto', height: '4em' }}
+                    src={evolvingweb}
+                    alt="Evolving Web"
+                  />
+                </div>
+                <div>
+                  <img
+                    style={{ margin: '0 auto', height: '4em' }}
+                    src={kopi}
+                    alt="KOPI"
+                  />
+                </div>
+                <div>
+                  <img
+                    style={{ margin: '0 auto', height: '4em' }}
+                    src={seahub}
+                    alt="SeaHub"
+                  />
+                </div>
+                <div>
+                  <img
+                    style={{ margin: '0 auto', height: '4em' }}
+                    src={t10labs}
+                    alt="Tower10 Labs"
+                  />
+                </div>
               </div>
             </div>
           </section>

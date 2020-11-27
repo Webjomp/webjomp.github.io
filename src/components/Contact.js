@@ -15,7 +15,7 @@ class Contact extends React.Component {
   }
 
   static disableSendFormButton(isDisabled) {
-    $('#contact-form :input[type=\'submit\']').prop('disabled', isDisabled);
+    $("#contact-form :input[type='submit']").prop('disabled', isDisabled);
   }
 
   static setCc() {
@@ -24,17 +24,20 @@ class Contact extends React.Component {
   }
 
   showMessage = (message) => {
-    const snackbarContainer = $('#form-is-sent-status')[0] || $('#form-is-sent-status');
+    const snackbarContainer =
+      $('#form-is-sent-status')[0] || $('#form-is-sent-status');
 
     const data = {
       message,
       timeout: 60000,
       actionHandler: Contact.cleanMessage,
-      actionText: this.props.intl.formatMessage({ id: 'contact.form.confirm.close' }),
+      actionText: this.props.intl.formatMessage({
+        id: 'contact.form.confirm.close',
+      }),
     };
 
     snackbarContainer.MaterialSnackbar.showSnackbar(data);
-  }
+  };
 
   submitContactForm = (e) => {
     e.preventDefault();
@@ -59,25 +62,35 @@ class Contact extends React.Component {
           const w = window.open();
 
           if (!w) {
-            this.showMessage(this.props.intl.formatMessage({ id: 'contact.form.confirm.popup' }));
+            this.showMessage(
+              this.props.intl.formatMessage({
+                id: 'contact.form.confirm.popup',
+              }),
+            );
           } else {
             w.document.open();
             w.document.write(body);
             w.document.close();
             w.focus();
 
-            this.showMessage(this.props.intl.formatMessage({ id: 'contact.form.confirm.success' }));
+            this.showMessage(
+              this.props.intl.formatMessage({
+                id: 'contact.form.confirm.success',
+              }),
+            );
           }
         } else {
           throw new Error(res);
         }
       } catch (error) {
-        this.showMessage(this.props.intl.formatMessage({ id: 'contact.form.confirm.error' }));
+        this.showMessage(
+          this.props.intl.formatMessage({ id: 'contact.form.confirm.error' }),
+        );
       }
     });
 
     return false;
-  }
+  };
 
   render() {
     return (
@@ -113,19 +126,32 @@ class Contact extends React.Component {
 
               <div className="field">
                 <input type="checkbox" id="receive-copy" name="receive-copy" />
-                <label htmlFor="receive-copy"> {/* eslint-disable-line jsx-a11y/label-has-for */}
+                <label htmlFor="receive-copy">
+                  {' '}
+                  {/* eslint-disable-line jsx-a11y/label-has-for */}
                   <FormattedMessage id="contact.form.receiveCopy" />
                 </label>
               </div>
 
               <input type="hidden" name="_cc" id="form-cc" />
-              <input type="hidden" name="_language" value={this.props.intl.locale} />
+              <input
+                type="hidden"
+                name="_language"
+                value={this.props.intl.locale}
+              />
               <input type="text" name="_gotcha" style={{ display: 'none' }} />
 
               <ul className="actions">
                 <li>
                   <FormattedMessage id="contact.form.send">
-                    {text => <input type="submit" value={text} className="special" onClick={this.submitContactForm} />}
+                    {(text) => (
+                      <input
+                        type="submit"
+                        value={text}
+                        className="special"
+                        onClick={this.submitContactForm}
+                      />
+                    )}
                   </FormattedMessage>
                 </li>
               </ul>
@@ -136,7 +162,10 @@ class Contact extends React.Component {
                 style={{ visibility: 'hidden' }}
               />
 
-              <div id="form-is-sent-status" className="mdl-js-snackbar mdl-snackbar" >
+              <div
+                id="form-is-sent-status"
+                className="mdl-js-snackbar mdl-snackbar"
+              >
                 <div className="mdl-snackbar__text" />
                 <button className="mdl-snackbar__action" type="button" />
               </div>

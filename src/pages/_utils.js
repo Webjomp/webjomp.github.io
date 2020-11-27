@@ -8,11 +8,9 @@ export const getTileAttributes = () => [
 ];
 
 export const getLandingImages = (data) => {
-  const getImageSrc = name => data[name].childImageSharp.responsiveResolution.src;
-  const imageNames = [
-    'banner',
-    ...getTileAttributes(),
-  ];
+  const getImageSrc = (name) =>
+    data[name].childImageSharp.responsiveResolution.src;
+  const imageNames = ['banner', ...getTileAttributes()];
 
   return imageNames.reduce(
     (urls, imgName) => ({

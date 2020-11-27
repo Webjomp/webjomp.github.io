@@ -10,7 +10,6 @@ const LandingService = ({ icon, intl, name }) => (
   </a>
 );
 
-
 LandingService.propTypes = {
   icon: PropTypes.string.isRequired,
   intl: intlShape.isRequired,

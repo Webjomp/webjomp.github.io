@@ -3,7 +3,8 @@ import React from 'react';
 import Services from '../components/Services';
 
 const ServicesPage = ({ data }) => {
-  const getImageSrc = name => data[name].childImageSharp.responsiveResolution.src;
+  const getImageSrc = (name) =>
+    data[name].childImageSharp.responsiveResolution.src;
 
   const images = {
     consulting: getImageSrc('consulting'),
@@ -15,7 +16,8 @@ const ServicesPage = ({ data }) => {
 };
 
 ServicesPage.propTypes = {
-  data: PropTypes.objectOf( // eslint-disable-line function-paren-newline
+  data: PropTypes.objectOf(
+    // eslint-disable-line function-paren-newline
     PropTypes.shape({
       childImageSharp: PropTypes.shape({
         responsiveResolution: PropTypes.shape({

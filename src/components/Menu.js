@@ -18,19 +18,28 @@ const Menu = ({ langs, onToggleMenu }) => {
       apropos: { en: 'about' },
     };
 
-    const getPageRegex = page => new RegExp(`(/\\w\\w/)${page}(/.*)?$`);
+    const getPageRegex = (page) => new RegExp(`(/\\w\\w/)${page}(/.*)?$`);
 
-    const currentUniquePageKey = Object
-      .keys(uniquePagesRedirection)
-      .find(page => typeof window !== 'undefined' && !!window.location.pathname.match(getPageRegex(page), 'gi'));
+    const currentUniquePageKey = Object.keys(uniquePagesRedirection).find(
+      (page) =>
+        typeof window !== 'undefined' &&
+        !!window.location.pathname.match(getPageRegex(page), 'gi'),
+    );
 
     return (
       <li key={lang.langKey}>
         <Link
           onClick={onToggleMenu}
-          to={currentUniquePageKey
-            ? lang.link.replace(getPageRegex(currentUniquePageKey), `$1${uniquePagesRedirection[currentUniquePageKey][lang.langKey]}$2`)
-            : lang.link}
+          to={
+            currentUniquePageKey
+              ? lang.link.replace(
+                  getPageRegex(currentUniquePageKey),
+                  `$1${
+                    uniquePagesRedirection[currentUniquePageKey][lang.langKey]
+                  }$2`,
+                )
+              : lang.link
+          }
         >
           {getLangLongName(lang.langKey)}
         </Link>
@@ -49,8 +58,11 @@ const Menu = ({ langs, onToggleMenu }) => {
           </li>
           <li>
             <FormattedMessage id="menu.about.page">
-              {page => (
-                <Link onClick={onToggleMenu} to={withPrefix(`/${currentLang}/${page}`)}>
+              {(page) => (
+                <Link
+                  onClick={onToggleMenu}
+                  to={withPrefix(`/${currentLang}/${page}`)}
+                >
                   <FormattedMessage id="menu.about.title" />
                 </Link>
               )}
@@ -58,31 +70,41 @@ const Menu = ({ langs, onToggleMenu }) => {
           </li>
           <li>
             <FormattedMessage id="menu.services.page">
-              {page => (
-                <Link onClick={onToggleMenu} to={withPrefix(`/${currentLang}/${page}`)}>
+              {(page) => (
+                <Link
+                  onClick={onToggleMenu}
+                  to={withPrefix(`/${currentLang}/${page}`)}
+                >
                   <FormattedMessage id="menu.services.title" />
                 </Link>
               )}
             </FormattedMessage>
           </li>
           <li>
-            <Link onClick={onToggleMenu} to={withPrefix(`/${currentLang}/#contact`)}>
+            <Link
+              onClick={onToggleMenu}
+              to={withPrefix(`/${currentLang}/#contact`)}
+            >
               <FormattedMessage id="menu.contact" />
             </Link>
           </li>
           {languageLinks}
         </ul>
       </div>
-      <button className="close" onClick={onToggleMenu}>Close</button>
+      <button className="close" onClick={onToggleMenu}>
+        Close
+      </button>
     </nav>
   );
 };
 
 Menu.propTypes = {
-  langs: PropTypes.arrayOf(PropTypes.shape({
-    selected: PropTypes.bool,
-    langKey: PropTypes.string,
-  })).isRequired,
+  langs: PropTypes.arrayOf(
+    PropTypes.shape({
+      selected: PropTypes.bool,
+      langKey: PropTypes.string,
+    }),
+  ).isRequired,
   onToggleMenu: PropTypes.func.isRequired,
 };
 

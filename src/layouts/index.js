@@ -31,7 +31,9 @@ class Template extends Component {
     const button = $('.scrolly');
 
     button.on('click', () => {
-      const heightToScroll = $(`#${button[0].href.split('#')[1]}`).offset().top - $('#header').height();
+      const heightToScroll =
+        $(`#${button[0].href.split('#')[1]}`).offset().top -
+        $('#header').height();
 
       $('html, body').animate({ scrollTop: heightToScroll }, 1200);
     });
@@ -78,8 +80,16 @@ class Template extends Component {
     const langsMenu = getLangs(langs, langKey, getUrlForLang(homeLink, url));
 
     return (
-      <IntlProvider locale={langKey} key={langKey} messages={flatten(i18nMessages)}>
-        <div className={`body ${this.state.loading} ${this.state.isMenuVisible ? 'is-menu-visible' : ''}`}>
+      <IntlProvider
+        locale={langKey}
+        key={langKey}
+        messages={flatten(i18nMessages)}
+      >
+        <div
+          className={`body ${this.state.loading} ${
+            this.state.isMenuVisible ? 'is-menu-visible' : ''
+          }`}
+        >
           <div id="wrapper">
             <Header onToggleMenu={this.handleToggleMenu} />
             {children({ ...this.props })}
@@ -105,7 +115,8 @@ Template.propTypes = {
     }).isRequired,
   }).isRequired,
   i18nMessages: PropTypes.objectOf(PropTypes.object).isRequired,
-  location: PropTypes.shape({ pathname: PropTypes.string.isRequired }).isRequired,
+  location: PropTypes.shape({ pathname: PropTypes.string.isRequired })
+    .isRequired,
 };
 
 export default Template;

@@ -41,6 +41,7 @@
     "dev": "gatsby develop",
     "deploy": "gatsby build && gh-pages -d public -b master",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
+    "prettier": "prettier --write .",
     "start": "gatsby develop",
     "test": "npm run lint"
   },
