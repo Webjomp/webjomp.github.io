@@ -5,4 +5,3 @@ Thumbs.db
 .DS_Store
 .intermediate-representation/
 .cache/
-yarn.lock
