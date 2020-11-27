@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+
 import Landing from '../components/Landing';
 import { getLandingImages } from './_utils';
 
@@ -19,6 +20,7 @@ HomeIndexFr.propTypes = {
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({
+        description: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,

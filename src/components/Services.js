@@ -4,9 +4,9 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 
-const Services = ({ images, intl }) => {
-  const websiteItems = require(`../data/messages/${intl.locale}`).services
-    .websites.list; // eslint-disable-line
+const Services = async ({ images, intl }) => {
+  const websiteItems = (await import(`../data/messages/${intl.locale}`))
+    .services.websites.list;
 
   return (
     <div>

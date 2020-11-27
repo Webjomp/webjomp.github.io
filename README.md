@@ -1,3 +1,15 @@
 # Webjomp
 
-Run `gatsby develop` in the terminal to start, then go to http://localhost:8080.
+## Test
+
+```fish
+npm run dev
+
+# Go to http://localhost:8000
+```
+
+## Publish
+
+```fish
+npm run deploy
+```

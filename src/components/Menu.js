@@ -2,6 +2,7 @@ import Link, { withPrefix } from 'gatsby-link';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+
 import { getLangLongName } from '../data/utils';
 
 const Menu = ({ langs, onToggleMenu }) => {
@@ -91,7 +92,7 @@ const Menu = ({ langs, onToggleMenu }) => {
           {languageLinks}
         </ul>
       </div>
-      <button className="close" onClick={onToggleMenu}>
+      <button type="button" className="close" onClick={onToggleMenu}>
         Close
       </button>
     </nav>

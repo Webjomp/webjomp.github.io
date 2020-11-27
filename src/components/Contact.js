@@ -1,12 +1,12 @@
-import 'material-design-lite/src/mdlComponentHandler';
-import 'material-design-lite/src/progress/_progress.scss';
-import 'material-design-lite/src/progress/progress';
-import 'material-design-lite/src/snackbar/_snackbar.scss';
-import 'material-design-lite/src/snackbar/snackbar';
-
 import $ from 'jquery';
 import React from 'react';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
+
+import 'material-design-lite/src/mdlComponentHandler';
+import 'material-design-lite/src/progress/progress';
+import 'material-design-lite/src/progress/_progress.scss';
+import 'material-design-lite/src/snackbar/snackbar';
+import 'material-design-lite/src/snackbar/_snackbar.scss';
 
 class Contact extends React.Component {
   static cleanMessage() {
@@ -24,6 +24,8 @@ class Contact extends React.Component {
   }
 
   showMessage = (message) => {
+    const { intl } = this.props;
+
     const snackbarContainer =
       $('#form-is-sent-status')[0] || $('#form-is-sent-status');
 
@@ -31,7 +33,7 @@ class Contact extends React.Component {
       message,
       timeout: 60000,
       actionHandler: Contact.cleanMessage,
-      actionText: this.props.intl.formatMessage({
+      actionText: intl.formatMessage({
         id: 'contact.form.confirm.close',
       }),
     };
@@ -40,6 +42,7 @@ class Contact extends React.Component {
   };
 
   submitContactForm = (e) => {
+    const { intl } = this.props;
     e.preventDefault();
 
     const form = $('#contact-form');
@@ -63,7 +66,7 @@ class Contact extends React.Component {
 
           if (!w) {
             this.showMessage(
-              this.props.intl.formatMessage({
+              intl.formatMessage({
                 id: 'contact.form.confirm.popup',
               }),
             );
@@ -74,7 +77,7 @@ class Contact extends React.Component {
             w.focus();
 
             this.showMessage(
-              this.props.intl.formatMessage({
+              intl.formatMessage({
                 id: 'contact.form.confirm.success',
               }),
             );
@@ -84,7 +87,7 @@ class Contact extends React.Component {
         }
       } catch (error) {
         this.showMessage(
-          this.props.intl.formatMessage({ id: 'contact.form.confirm.error' }),
+          intl.formatMessage({ id: 'contact.form.confirm.error' }),
         );
       }
     });
@@ -93,6 +96,8 @@ class Contact extends React.Component {
   };
 
   render() {
+    const { intl } = this.props;
+
     return (
       <section id="contact">
         <div className="inner">
@@ -134,11 +139,7 @@ class Contact extends React.Component {
               </div>
 
               <input type="hidden" name="_cc" id="form-cc" />
-              <input
-                type="hidden"
-                name="_language"
-                value={this.props.intl.locale}
-              />
+              <input type="hidden" name="_language" value={intl.locale} />
               <input type="text" name="_gotcha" style={{ display: 'none' }} />
 
               <ul className="actions">
@@ -167,7 +168,11 @@ class Contact extends React.Component {
                 className="mdl-js-snackbar mdl-snackbar"
               >
                 <div className="mdl-snackbar__text" />
-                <button className="mdl-snackbar__action" type="button" />
+                <button
+                  aria-label="Close confirmation"
+                  className="mdl-snackbar__action"
+                  type="button"
+                />
               </div>
             </form>
           </section>

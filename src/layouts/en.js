@@ -1,14 +1,15 @@
-import 'intl';
-
 import React from 'react';
-import { addLocaleData } from 'react-intl';
-import en from 'react-intl/locale-data/en';
+
+import '@formatjs/intl-pluralrules/locale-data/en';
+import '@formatjs/intl-pluralrules/polyfill';
+import '@formatjs/intl-relativetimeformat/locale-data/en';
+import '@formatjs/intl-relativetimeformat/polyfill';
+import 'intl';
 
 import messages from '../data/messages/en';
 import Layout from './index';
 
-addLocaleData(en);
-
+// eslint-disable-next-line react/jsx-props-no-spreading
 export default (props) => <Layout {...props} i18nMessages={messages} />;
 
 export const pageQuery = graphql`

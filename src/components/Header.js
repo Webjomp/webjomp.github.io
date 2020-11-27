@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
-import React from 'react';
 import Link from 'gatsby-link';
 import $ from 'jquery';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 class Header extends React.Component {
   componentDidMount() {
@@ -17,13 +17,15 @@ class Header extends React.Component {
   }
 
   render() {
+    const { onToggleMenu } = this.props;
+
     return (
       <header id="header" className="alt">
         <Link to="/" className="logo accent-wj">
           Webjomp
         </Link>
         <nav>
-          <button className="menu-link" onClick={this.props.onToggleMenu}>
+          <button type="button" className="menu-link" onClick={onToggleMenu}>
             Menu
           </button>
         </nav>

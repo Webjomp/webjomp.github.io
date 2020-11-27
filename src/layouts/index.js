@@ -5,11 +5,11 @@ import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
 import React, { Component } from 'react';
 import { IntlProvider } from 'react-intl';
 
-import '../assets/scss/main.scss';
-
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Menu from '../components/Menu';
-import Footer from '../components/Footer';
+
+import '../assets/scss/main.scss';
 
 class Template extends Component {
   static navigateToHash() {
@@ -66,13 +66,16 @@ class Template extends Component {
   }
 
   handleToggleMenu() {
+    const { isMenuVisible } = this.state;
+
     this.setState({
-      isMenuVisible: !this.state.isMenuVisible,
+      isMenuVisible: !isMenuVisible,
     });
   }
 
   render() {
     const { children, data, i18nMessages, location } = this.props;
+    const { isMenuVisible, loading } = this.state;
     const url = location.pathname;
     const { defaultLangKey, langs } = data.site.siteMetadata.languages;
     const langKey = getCurrentLangKey(langs, defaultLangKey, url);
@@ -86,8 +89,8 @@ class Template extends Component {
         messages={flatten(i18nMessages)}
       >
         <div
-          className={`body ${this.state.loading} ${
-            this.state.isMenuVisible ? 'is-menu-visible' : ''
+          className={`body ${loading} ${
+            isMenuVisible ? 'is-menu-visible' : ''
           }`}
         >
           <div id="wrapper">
