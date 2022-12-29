@@ -6,7 +6,7 @@ import $ from 'jquery';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 
 import { getTileAttributes } from '../pages/_utils';
 import Banner from './Banner';
@@ -174,7 +174,10 @@ class HomeIndex extends React.Component {
 }
 
 HomeIndex.propTypes = {
-  intl: intlShape.isRequired,
+  intl: PropTypes.shape({
+    formatMessage: PropTypes.func.isRequired,
+    locale: PropTypes.string.isRequired,
+  }).isRequired,
   metaTitle: PropTypes.string.isRequired,
   metaDescription: PropTypes.string.isRequired,
   imageUrls: PropTypes.objectOf(PropTypes.string).isRequired,

@@ -1,6 +1,7 @@
 import { withPrefix } from 'gatsby-link';
+import PropTypes from 'prop-types';
 import React from 'react';
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 
 const Footer = ({ intl }) => (
   <footer id="footer">
@@ -96,7 +97,10 @@ const Footer = ({ intl }) => (
 );
 
 Footer.propTypes = {
-  intl: intlShape.isRequired,
+  intl: PropTypes.shape({
+    formatMessage: PropTypes.func.isRequired,
+    locale: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default injectIntl(Footer);

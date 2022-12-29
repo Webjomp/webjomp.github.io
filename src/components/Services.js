@@ -2,7 +2,7 @@ import Link, { withPrefix } from 'gatsby-link';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 
 const Services = async ({ images, intl }) => {
   const websiteItems = (await import(`../data/messages/${intl.locale}`))
@@ -164,7 +164,10 @@ Services.propTypes = {
     mobileapps: PropTypes.string.isRequired,
     websites: PropTypes.string.isRequired,
   }).isRequired,
-  intl: intlShape.isRequired,
+  intl: PropTypes.shape({
+    formatMessage: PropTypes.func.isRequired,
+    locale: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default injectIntl(Services);

@@ -1,3 +1,3 @@
-import About from '../layouts/about';
+import About from '../components/layouts/About';
 
 export default About;

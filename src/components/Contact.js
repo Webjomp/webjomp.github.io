@@ -1,6 +1,7 @@
 import $ from 'jquery';
+import PropTypes from 'prop-types';
 import React from 'react';
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 
 import 'material-design-lite/src/mdlComponentHandler';
 import 'material-design-lite/src/progress/progress';
@@ -207,7 +208,10 @@ class Contact extends React.Component {
 }
 
 Contact.propTypes = {
-  intl: intlShape.isRequired,
+  intl: PropTypes.shape({
+    formatMessage: PropTypes.func.isRequired,
+    locale: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default injectIntl(Contact);

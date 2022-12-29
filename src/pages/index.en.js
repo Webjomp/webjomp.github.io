@@ -1,18 +1,22 @@
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import Landing from '../components/Landing';
+import En from '../components/layouts/En';
 import { getLandingImages } from './_utils';
 
-const HomeIndexEn = ({ data }) => {
+const HomeIndexEn = ({ data, location }) => {
   const imageUrls = getLandingImages(data);
 
   return (
-    <Landing
-      metaTitle={JSON.parse(data.site.siteMetadata.title).en}
-      metaDescription={JSON.parse(data.site.siteMetadata.description).en}
-      imageUrls={imageUrls}
-    />
+    <En location={location}>
+      <Landing
+        metaTitle={JSON.parse(data.site.siteMetadata.title).en}
+        metaDescription={JSON.parse(data.site.siteMetadata.description).en}
+        imageUrls={imageUrls}
+      />
+    </En>
   );
 };
 
@@ -24,6 +28,10 @@ HomeIndexEn.propTypes = {
         title: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+    hash: PropTypes.string,
   }).isRequired,
 };
 

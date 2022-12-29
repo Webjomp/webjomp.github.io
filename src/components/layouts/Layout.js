@@ -1,32 +1,18 @@
 import { flatten } from 'flat';
+import { StaticQuery, graphql } from 'gatsby';
 import $ from 'jquery';
 import PropTypes from 'prop-types';
 import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
 import React, { Component } from 'react';
 import { IntlProvider } from 'react-intl';
 
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import Menu from '../components/Menu';
+import Footer from '../Footer';
+import Header from '../Header';
+import Menu from '../Menu';
 
-import '../assets/scss/main.scss';
+import '../../assets/scss/main.scss';
 
 class Template extends Component {
-  static navigateToHash() {
-    if (typeof window !== 'undefined') {
-      const href = window.___history.location.hash; // eslint-disable-line no-underscore-dangle
-
-      if (href) {
-        const element = document.querySelector(href);
-
-        if (element) {
-          element.scrollIntoView();
-          window.scrollBy(0, -$('#header').height() + 1);
-        }
-      }
-    }
-  }
-
   static setScrollyButtons() {
     const button = $('.scrolly');
 
@@ -56,7 +42,7 @@ class Template extends Component {
 
   componentDidUpdate() {
     Template.setScrollyButtons();
-    Template.navigateToHash();
+    this.navigateToHash();
   }
 
   componentWillUnmount() {
@@ -71,6 +57,20 @@ class Template extends Component {
     this.setState({
       isMenuVisible: !isMenuVisible,
     });
+  }
+
+  navigateToHash() {
+    const { location } = this.props;
+    const href = location.hash;
+
+    if (href) {
+      const element = document.querySelector(href);
+
+      if (element) {
+        element.scrollIntoView();
+        window.scrollBy(0, -$('#header').height() + 1);
+      }
+    }
   }
 
   render() {
@@ -88,25 +88,78 @@ class Template extends Component {
         key={langKey}
         messages={flatten(i18nMessages)}
       >
-        <div
-          className={`body ${loading} ${
-            isMenuVisible ? 'is-menu-visible' : ''
-          }`}
-        >
-          <div id="wrapper">
-            <Header onToggleMenu={this.handleToggleMenu} />
-            {children({ ...this.props })}
-            <Footer />
-          </div>
-          <Menu onToggleMenu={this.handleToggleMenu} langs={langsMenu} />
-        </div>
+        <StaticQuery
+          query={graphql`
+            fragment ImageNarrow on File {
+              childImageSharp {
+                fluid(maxWidth: 600, quality: 90) {
+                  src
+                }
+              }
+            }
+            fragment ImageWide on File {
+              childImageSharp {
+                fluid(maxWidth: 900, quality: 90) {
+                  src
+                }
+              }
+            }
+            fragment Landing on Query {
+              site {
+                siteMetadata {
+                  title
+                  description
+                }
+              }
+              moderne: file(relativePath: { eq: "moderne.jpg" }) {
+                ...ImageNarrow
+              }
+              agile: file(relativePath: { eq: "agile.jpg" }) {
+                ...ImageWide
+              }
+              beton: file(relativePath: { eq: "beton.jpg" }) {
+                ...ImageNarrow
+              }
+              adaptatif: file(relativePath: { eq: "adaptatif.jpg" }) {
+                ...ImageWide
+              }
+              clair: file(relativePath: { eq: "clair.jpg" }) {
+                ...ImageNarrow
+              }
+              abordable: file(relativePath: { eq: "abordable.jpg" }) {
+                ...ImageWide
+              }
+              banner: file(relativePath: { eq: "banner-webjomp.jpg" }) {
+                childImageSharp {
+                  fluid(maxWidth: 1920, quality: 40) {
+                    src
+                  }
+                }
+              }
+            }
+          `}
+          render={() => (
+            <div
+              className={`body ${loading} ${
+                isMenuVisible ? 'is-menu-visible' : ''
+              }`}
+            >
+              <div id="wrapper">
+                <Header onToggleMenu={this.handleToggleMenu} />
+                {children}
+                <Footer />
+              </div>
+              <Menu onToggleMenu={this.handleToggleMenu} langs={langsMenu} />
+            </div>
+          )}
+        />
       </IntlProvider>
     );
   }
 }
 
 Template.propTypes = {
-  children: PropTypes.func.isRequired,
+  children: PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({
@@ -118,64 +171,10 @@ Template.propTypes = {
     }).isRequired,
   }).isRequired,
   i18nMessages: PropTypes.objectOf(PropTypes.object).isRequired,
-  location: PropTypes.shape({ pathname: PropTypes.string.isRequired })
-    .isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+    hash: PropTypes.string,
+  }).isRequired,
 };
 
 export default Template;
-
-export const imageNarrowFragment = graphql`
-  fragment ImageNarrow on File {
-    childImageSharp {
-      responsiveResolution(width: 600, quality: 90) {
-        src
-      }
-    }
-  }
-`;
-
-export const imageWideFragment = graphql`
-  fragment ImageWide on File {
-    childImageSharp {
-      responsiveResolution(width: 900, quality: 90) {
-        src
-      }
-    }
-  }
-`;
-
-export const landingFragment = graphql`
-  fragment Landing on RootQueryType {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-    moderne: file(relativePath: { eq: "moderne.jpg" }) {
-      ...ImageNarrow
-    }
-    agile: file(relativePath: { eq: "agile.jpg" }) {
-      ...ImageWide
-    }
-    beton: file(relativePath: { eq: "beton.jpg" }) {
-      ...ImageNarrow
-    }
-    adaptatif: file(relativePath: { eq: "adaptatif.jpg" }) {
-      ...ImageWide
-    }
-    clair: file(relativePath: { eq: "clair.jpg" }) {
-      ...ImageNarrow
-    }
-    abordable: file(relativePath: { eq: "abordable.jpg" }) {
-      ...ImageWide
-    }
-    banner: file(relativePath: { eq: "banner-webjomp.jpg" }) {
-      childImageSharp {
-        responsiveResolution(width: 1920, quality: 40) {
-          src
-        }
-      }
-    }
-  }
-`;

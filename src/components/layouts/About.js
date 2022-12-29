@@ -1,33 +1,25 @@
-import PropTypes from 'prop-types';
+import { StaticQuery, graphql } from 'gatsby';
 import React from 'react';
-import About from '../components/About';
 
-const AboutPage = ({ data }) => (
-  <About founderImg={data.file.childImageSharp.responsiveResolution.src} />
-);
+import About from '../About';
 
-AboutPage.propTypes = {
-  data: PropTypes.shape({
-    file: PropTypes.shape({
-      childImageSharp: PropTypes.shape({
-        responsiveResolution: PropTypes.shape({
-          src: PropTypes.string.isRequired,
-        }).isRequired,
-      }).isRequired,
-    }).isRequired,
-  }).isRequired,
-};
-
-export default AboutPage;
-
-export const pageQuery = graphql`
-  query AboutQuery {
-    file(relativePath: { eq: "fx.png" }) {
-      childImageSharp {
-        responsiveResolution {
-          src
+const AboutPage = () => (
+  <StaticQuery
+    query={graphql`
+      query AboutQuery {
+        file(relativePath: { eq: "fx.png" }) {
+          childImageSharp {
+            fluid {
+              src
+            }
+          }
         }
       }
-    }
-  }
-`;
+    `}
+    render={(data) => (
+      <About founderImg={data.file.childImageSharp.fluid.src} />
+    )}
+  />
+);
+
+export default AboutPage;

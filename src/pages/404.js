@@ -1,6 +1,7 @@
 import React from 'react';
 import { withPrefix } from 'gatsby-link';
-import { injectIntl, intlShape } from 'react-intl';
+import PropTypes from 'prop-types';
+import { injectIntl } from 'react-intl';
 
 const NotFoundPage = ({ intl }) => (
   <div
@@ -25,7 +26,10 @@ const NotFoundPage = ({ intl }) => (
 );
 
 NotFoundPage.propTypes = {
-  intl: intlShape.isRequired,
+  intl: PropTypes.shape({
+    formatMessage: PropTypes.func.isRequired,
+    locale: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default injectIntl(NotFoundPage);
