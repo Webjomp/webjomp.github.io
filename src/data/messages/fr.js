@@ -3,8 +3,8 @@ module.exports = {
     title: 'À propos de Webjomp',
     desc: {
       1: 'Fondateur de Webjomp, François-Xavier Lemire obtient un diplôme en informatique avec une majeure en génie logiciel à ' +
-        'l\'Université McGill en 2016. Il est aussi diplômé en droit de l\'Université de Montréal depuis 2010 et membre du ' +
-        'Barreau du Québec depuis 2011, auparavant praticien au sein du cabinet {lla}',
+        'l\'Université McGill en 2016. Il est aussi diplômé en droit de l\'Université de Montréal depuis 2010 et a été membre du ' +
+        'Barreau du Québec de 2011 à 2025, auparavant praticien au sein du cabinet {lla}',
       2: 'François-Xavier a développé ses talents d\'ingénieur logiciel en touchant à plusieurs disciplines, dont la {fintech} chez ' +
         '{morgan}, les jeux vidéo ({skylanders}) chez {beenox}, et la publicité mobile chez {vungle}, à San Francisco.',
       3: 'S\'il n\'est pas en train de réfléchir à sa prochaine application, il est soit en train de pratiquer la trompette, ' +

@@ -21,7 +21,7 @@ const About = ({ founderImg }) => (
           <FormattedMessage
             id="about.desc.1"
             tagName="p"
-            values={{ lla: <a href="http://www.lemireavocat.com">Lemire Lemire avocats, s.e.n.c</a> }}
+            values={{ lla: <a href="http://www.lemireavocat.com">Lemire Lemire avocats, s.e.n.c.</a> }}
           />
           <FormattedMessage
             id="about.desc.2"
@@ -30,7 +30,7 @@ const About = ({ founderImg }) => (
               fintech: (<i>FinTech</i>),
               morgan: (<a href="http://www.morganstanley.com/">Morgan Stanley</a>),
               skylanders: (<i>Skylanders : SuperChargers</i>),
-              beenox: (<a href="http://beenox.com/">Activision (Beenox)</a>),
+              beenox: (<a href="http://beenox.com/">Activision</a>),
               vungle: (<a href="https://vungle.com/">Vungle</a>),
             }}
           />
